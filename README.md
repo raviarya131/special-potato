@@ -37,7 +37,7 @@ Export your WhatsApp chat as a `.txt` file and ensure:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/whatsapp-analyzer.git
+git clone [https://github.com/yourusername/whatsapp-analyzer.git](https://github.com/raviarya131/special-potato)
 cd whatsapp-analyzer
 
 # 2. Install dependencies
