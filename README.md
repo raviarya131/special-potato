@@ -30,6 +30,7 @@ playwright install chromium
 # 5. Run the analyzer
 python main.py
 
+```
 ---
 
 
