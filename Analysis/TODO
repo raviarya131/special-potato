@@ -1,0 +1,36 @@
+#first_person
+#second_person
+
+#message_percent_1
+#message_percent_2    --> takes number of messages for donut chart
+
+#average_word_1
+#average_word_2       --> takes average word in a message
+
+#messsage_per_day_1, #messsage_per_day_2
+
+#date_list
+#message_count_list
+#message_count_list_1
+#message_count_list_2   --> put special care because of replacement
+
+#time_count_1
+#time_count_2    --> put two blank elements at first and 1 at back
+
+#day_count_list --> takes number of message each weak day
+
+#20words_1
+#20words_count_1
+#20words_2
+#20words_count_2
+
+#unique_word_1, #unique_word_2  --> count of unique words
+
+#7emoji_1
+#7emoji_count_1
+#7emoji_2
+#7emoji_count_2
+
+#emoji_count_1
+#emoji_count_2   --> count of all emoji
+

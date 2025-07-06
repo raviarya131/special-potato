@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2 "></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/fonts/Montserrat/Montserrat.css">
+</head>
+<body>
+<div class="page">
+    <p class="title">JANIE AND MARGOT</p>
+    <p class="subtitle">Our Messages statistics since we started talking to each other</p>
+    <div class="total-box">
+        <p class="total-title">TOTAL</p>
+        <img src="static/message_bubble.png" alt="bubble" id="bubble">
+        <p id="below-bubble" style="font-size: 14pt;"><span style="font-size: 18pt; color:#F65272">40,000</span><br>Messages sent</p>
+        <p id="right-bubble">We sent, an average, 44,308 messages per person. And even though, we never run out of things to say, one of us is a bit chattier than the other….</p>
+        <div style="width: 6.2cm;"><canvas id="donut"></canvas></div>
+        <div style="width: 7.5cm;"><canvas id="bar-horizontal1"></canvas></div>
+        <div style="width: 7.5cm;"><canvas id="bar-horizontal2"></canvas></div>
+        <div id="split-total-box"></div>
+        <div>
+            <table class="table-data">
+                <tr style="line-height: 0;"><td style="width: 30%">TOTAL DAYS</td><td style="width: 40%">TOTAL MESSAGES</td><td style="width: 60%">TOTAL WORDS</td></tr>
+                <tr class="big-font"><td>215</td><td>40,000</td><td>2,00,000</td></tr>
+                <tr style="line-height: 30px; color: white;"><td> dd</td></tr>
+                <tr style="line-height: 0;"><td>TOTAL EMOJI</td><td>TOTAL CALLS</td></tr>
+                <tr class="big-font"><td>215</td><td>0</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="page">
+    <p class="title">OUR CHAT TIMELINE</p>
+    <div class="timeline1 box"><div style="margin: 5mm 7mm 1cm 7mm; height: 90%"><canvas id="timeline1"></canvas></div></div>
+    <div class="timeline2 box"><div style="margin: 5mm 7mm 1cm 5mm; height: 90%"><canvas id="timeline2"></canvas></div></div>
+    <div class="hourly box"><div style="margin: 1mm 7mm 2cm 5mm; height: 90%"><canvas id="timeline3"></canvas></div></div>
+    <div class="weekly box"><div style="margin: 1mm 7mm 2cm 5mm; height: 90%"><canvas id="timeline4"></canvas></div></div>
+    <table class="table-data2">
+        <tr class="big-font" style="font-size: 30pt"><td>5PM</td></tr>
+        <tr><td style="width: 30%">is the busiest hour with<br><span class="medium-font">2015</span>  total messages.</td></tr>
+        <tr style="line-height: 50px; color: white;"><td> .</td></tr>
+        <tr class="big-font" style="font-size: 30pt"><td>215</td></tr>
+        <tr style="line-height: 0;"><td>Messages per day on average</td></tr>
+        <tr style="line-height: 50px; color: white;"><td> .</td></tr>
+        <tr class="big-font" style="font-size: 30pt"><td>02-12-2013</td></tr>
+        <tr><td style="width: 30%">was the busiest day with<br><span class="medium-font">1073</span>  messages.</td></tr>
+    </table>
+</div>
+<div class="page">
+    <p class="title">WHAT ABOUT WORDS?</p>
+    <div class="cloud box"></div>
+
+    <div class="left box2">
+        <p class="name">MARGOT</p>
+        <div style="margin: 0 2mm 2mm 2mm; height: 85%"><canvas id="word1"></canvas></div>
+    </div>
+    <div class="middle box2" style="height: 6.5cm; margin-top: 9.5cm; width: 5cm">
+        <div style="margin: 10mm auto; width: 70%; height: 90%"><canvas id="word3"></canvas></div>
+    </div>
+    <div class="right box2">
+        <p class="name">JANIE</p>
+        <div style="margin: 0 2mm 2mm 2mm; height: 85%"><canvas id="word2"></canvas></div>
+    </div>
+
+</div>
+<div class="page">
+    <p class="title">…BUT WE DON’T JUST USE WORDS</p>
+    <div class="emoji-box">
+        <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="emoji" class="emoji1">
+        <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f975.png" alt="emoji" class="emoji2">
+        <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f62d.png" alt="emoji" class="emoji3">
+        <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f976.png" alt="emoji" class="emoji4">
+        <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="emoji" class="emoji5">
+    </div>
+    <div style="display: flex; margin-top: 8cm;">
+        <div class="left2 box2">
+            <p class="name">MARGOT</p>
+            <div style="margin: 0 2mm 2mm 7mm; height: 75%"><canvas id="emoji1"></canvas></div>
+            <div class="vertical-emoji-box">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+
+            </div>
+        </div>
+        <div class="middle box2" style="height: 6.5cm; margin-top: 4.95cm; width: 5cm">
+            <div style="margin: 3mm auto; width: 70%; height: 90%"><canvas id="emoji3"></canvas></div>
+        </div>
+        <div class="right2 box2">
+            <p class="name">JANIE</p>
+            <div style="margin: 0 7mm 2mm 2mm; height: 75%"><canvas id="emoji2"></canvas></div>
+            <div class="vertical-emoji-box2">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+                <img src="../faltu/emojipedia_emoji/facebook original/emoji_1f970.png" alt="" class="small-emoji">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="chart_data_2.js"></script>
+</body>
+</html>

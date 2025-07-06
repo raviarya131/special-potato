@@ -1,0 +1,872 @@
+document.addEventListener("DOMContentLoaded", function() {
+  // Your Chart.js code here
+    const myColor = '#13264D';
+    const otherColor = '#F65272';
+    const myColor2 = 'rgba(19, 38, 77, 0.7)';
+    const otherColor2 = 'rgba(246, 82, 114, 0.7)';
+
+    const axisColor = {
+
+        x: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
+            grid: {
+            color: 'rgba(255,0,0,0)',
+            borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+            },
+            ticks : {
+                font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+            autoSkip: true,
+            maxRotation: 0,
+            minRotation: 0,
+            }
+        },
+        y: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
+            grid: {
+            color: 'rgba(20,20,20,0.03)',
+            borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+            },
+            ticks : {
+                font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },}
+        }
+        };
+
+    const canvas1 = document.getElementById('donut').getContext('2d');
+    const donut_chart = new Chart(canvas1, {
+        type: 'doughnut',
+        data: {
+            labels: ['#first_person', '#second_person'],
+            datasets: [
+            {
+                borderWidth:0,
+                data: [#message_percent_1, #message_percent_2],
+                borderJoinStyle:'round',
+                backgroundColor: [
+                    myColor,
+                    otherColor,
+                ],
+                //backgroundColor: Object.values(Utils.CHART_COLORS),
+            }
+            ]
+        },
+        options: {
+            devicePixelRatio: 4,
+            cutout: 50,
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        boxWidth: 10,
+                        boxHeight: 10,
+                        font: {
+                            family: "'Barlow Condensed', sans-serif",
+                        }
+                    }
+                },
+                title: {
+                    display: true,
+                    text: 'Messages Distribution',
+                    font: {
+                        family: "'Barlow Condensed', sans-serif",
+                        size: 18,
+                        weight: 400,
+                    }
+                }
+            }
+        },
+
+    });
+
+
+    const canvas2 = document.getElementById('bar-horizontal1').getContext('2d');
+    const bar_horizontal1 = new Chart(canvas2, {
+        type: 'bar',
+        data: {
+            labels: ['#first_person', '#second_person'],
+            datasets: [{
+                data: [#average_word_1, #average_word_2],
+                backgroundColor: [
+                    myColor,
+                    otherColor,
+                ],
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(225,255,225,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            plugins: {
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Number of Words per Message',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+
+    const canvas3 = document.getElementById('bar-horizontal2').getContext('2d');
+    const bar_horizontal2 = new Chart(canvas3, {
+        type: 'bar',
+        data: {
+            labels: ['#first_person', '#second_person'],
+            datasets: [{
+                data: [#messsage_per_day_1, #messsage_per_day_2],
+                backgroundColor: [
+                    myColor,
+                    otherColor,
+                ],
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(225,255,225,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0,
+                    },
+
+                },
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+                plugins: {
+              legend: {
+                display:false,
+                  labels :{
+                      font: {
+                          family: "'Barlow Condensed', sans-serif",
+                      }
+                  },
+              },
+              title: {
+                display: true,
+                text: 'Average Message per day',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+    const canvas4 = document.getElementById('timeline1').getContext('2d');
+    const timeline1 = new Chart(canvas4, {
+        type: 'bar',
+        data: {
+            labels: #date_list,
+            datasets: [{
+                data: #message_count_list,
+                backgroundColor: myColor,
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: axisColor,
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display:false,
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Total Messages Over Time',
+                    font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                },
+                }
+            }
+        },
+    });
+
+    const canvas5 = document.getElementById('timeline2').getContext('2d');
+    const timeline2 = new Chart(canvas5, {
+        type: 'line',
+        data: {
+            labels: #date_list,
+            datasets: [{
+                data: #message_count_list_1,
+                backgroundColor: myColor2,
+                borderWidth:0,
+                fill: true,
+                label: '#first_person',
+            },
+            {
+                data: #message_count_list_2,
+                backgroundColor: otherColor2,
+                borderWidth:0,
+                fill: true,
+                label: '#second_person',
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: axisColor,
+            radius: 0,
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        boxWidth: 10,
+                        boxHeight: 10,
+                        font: {
+                            family: "'Barlow Condensed', sans-serif",
+                        }
+                    },
+                    display:true,
+                    position: 'top',
+
+                },
+                title: {
+                    display: true,
+                    text: 'Messages Over Time by Each User',
+                    font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                },
+                }
+            }
+        },
+    });
+
+    const canvas6 = document.getElementById('timeline3').getContext('2d');
+    const myChart4 = new Chart(canvas6, {
+        type: 'line',
+        data: {
+            labels: ['', '', '12 AM', '', '', '', '', '', '6 AM', '', '', '', '', '', '12 PM', '', '', '', '', '', '6 PM', '', '', '', '', '11 PM', '', ''],
+            datasets: [{
+                data: #time_count_1,
+                backgroundColor: 'rgba(215,85,87,255)',
+                borderColor: myColor,
+                borderWidth: 2,
+                //fill:true,
+            },
+            {
+                data: #time_count_2,
+                backgroundColor: 'rgba(242,142,44,255)',
+                borderColor: otherColor,
+                borderWidth: 2,
+                //fill:true,
+            }
+            ]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
+          grid: {
+            color: 'rgba(255,0,0,0)',
+            borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+          },
+          ticks : {
+              font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+            autoSkip: false,
+            maxRotation: 0,
+            minRotation: 0
+          }
+        },
+        y: {  // <-- axis is not array anymore, unlike before in v2.x: '[{'
+        suggestedMin: -1,
+          grid: {
+            color: 'rgba(20,20,20,0.03)',
+            borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+          },
+            ticks: {
+            font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+            }
+
+
+        }
+            },
+
+            radius:2,
+            responsive: true,
+            plugins: {
+                legend: {
+                    display:false,
+                    position: 'top',
+                },
+                labels: {
+                        boxWidth: 10,
+                        boxHeight: 10,
+                        font: {
+                            family: "'Barlow Condensed', sans-serif",
+                        }
+                    },
+            title: {
+                display: true,
+                text: 'Messages Over Time',
+                font: {
+                            family: "'Barlow Condensed', sans-serif",
+                            size: 18,
+                            weight: 400,
+                        }
+            }
+            }
+        },
+    });
+
+    const canvas7 = document.getElementById('timeline4').getContext('2d');
+    var gradient = canvas7.createLinearGradient(0, 0, 0, 400);
+    gradient.addColorStop(0, otherColor);
+    gradient.addColorStop(1, myColor);
+    const bar_horizontal3 = new Chart(canvas7, {
+        type: 'bar',
+        data: {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [{
+                data: #day_count_list,
+                backgroundColor: gradient,
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(225,255,225,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            plugins: {
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Number of Message by Days',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+
+    const canvas8 = document.getElementById('word1').getContext('2d');
+    const bar_horizontal4 = new Chart(canvas8, {
+        type: 'bar',
+        data: {
+            labels: #20words_1,
+        datasets: [{
+                data: #20words_count_1,
+        backgroundColor: myColor,
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(0,0,0,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Top Words',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+
+    const canvas9 = document.getElementById('word2').getContext('2d');
+    const bar_horizontal5 = new Chart(canvas9, {
+        type: 'bar',
+        data: {
+            labels: #20words_2,
+        datasets: [{
+                data: #20words_count_1,
+        backgroundColor: otherColor,
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    reverse: true,
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(0,0,0,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    position: 'right',
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Top Words',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+    const canvas10 = document.getElementById('word3').getContext('2d');
+    const bar_vertical1 = new Chart(canvas10, {
+        type: 'bar',
+        data: {
+            labels: ['#first_person', '#second_person'],
+            datasets: [{
+                data: [#unique_word_1, #unique_word_2],
+                backgroundColor: [
+                    myColor,
+                    otherColor,
+                ],
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(225,255,225,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'x',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Unique Words',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+    const canvas11 = document.getElementById('emoji1').getContext('2d');
+    const bar_horizontal6 = new Chart(canvas11, {
+        type: 'bar',
+        data: {
+            labels: #7emoji_1,
+        datasets: [{
+                data: #7emoji_count_1,
+                backgroundColor: myColor,
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(0,0,0,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Most Used Emoji',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+    const canvas12 = document.getElementById('emoji2').getContext('2d');
+    const bar_horizontal7 = new Chart(canvas12, {
+        type: 'bar',
+        data: {
+            labels: #7emoji_2,
+            datasets: [{
+                data: #7emoji_count_2,
+                backgroundColor: otherColor,
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    reverse: true,
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(0,0,0,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    position: 'right',
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'y',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Most Used Emoji',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+    const canvas13 = document.getElementById('emoji3').getContext('2d');
+    const bar_vertical2 = new Chart(canvas13, {
+        type: 'bar',
+        data: {
+            labels: ['#first_person', '#second_person'],
+            datasets: [{
+                data: [#emoji_count_1, #emoji_count_2],
+                backgroundColor: [
+                    myColor,
+                    otherColor,
+                ],
+            }]
+        },
+        options: {
+            devicePixelRatio: 4,
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        }
+                      },
+                  grid: {
+                    color: 'rgba(225,255,225,0.03)',
+                    borderColor: 'rgba(225,255,225,0.2)'  // <-- this line is answer to initial question
+                    }
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255,0,0,0)',
+                        borderColor: 'rgba(225,255,225,0.4)'  // <-- this line is answer to initial question
+                    },
+                    ticks : {
+                        font: {
+                          family: "'Barlow Condensed', sans-serif",
+                        },
+                        autoSkip: false,
+                        maxRotation: 0,
+                        minRotation: 0
+                    },
+
+                }
+              },
+            indexAxis: 'x',
+            elements: {
+              bar: {
+                borderWidth: 0,
+                borderColor: 'white',
+              }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display:false,
+              },
+              title: {
+                display: true,
+                text: 'Number of Emoji',
+                font: {
+                    family: "'Barlow Condensed', sans-serif",
+                    size: 18,
+                    weight: 400,
+                }
+              }
+            }
+          },
+    });
+
+});
+
+
