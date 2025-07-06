@@ -126,8 +126,8 @@ def analyse(message_list, person_1, person_2):
         all_dict[person]['days_dict'][i.date.get_datetime_object().strftime('%A')] += 1
         all_dict['all']['days_dict'][i.date.get_datetime_object().strftime('%A')] += 1
 
-        all_dict[person]['time_dict'][datetime(2012, 4, 4, i.time.hour, 0).strftime('%#I %p')] += 1
-        all_dict['all']['time_dict'][datetime(2012, 4, 4, i.time.hour, 0).strftime('%#I %p')] += 1
+        all_dict[person]['time_dict'][datetime(2012, 4, 4, i.time.hour, 0).strftime('%I %p')] += 1
+        all_dict['all']['time_dict'][datetime(2012, 4, 4, i.time.hour, 0).strftime('%I %p')] += 1
 
         date = i.date.get_datetime_object().date().strftime('%d %b, %Y')
         if date in all_dict[person]['dates_dict']:
