@@ -11,10 +11,32 @@ A Python-based tool powered by **Playwright**, built to analyze your exported Wh
   <img src="sample/sample (4).jpg" width="400"/>
 </p>
 
+## 🧪 How to Run
+
+```bash
+# 1. Clone the repository
+git clone [https://github.com/yourusername/whatsapp-analyzer.git](https://github.com/raviarya131/special-potato)
+cd chatAnalysis
+
+# 2. Install dependencies
+pip install -r requirements.txt
+
+# 3. Install Playwright's browser binaries
+playwright install chromium
+
+# 4. Update filename
+# Open `main.py` and change the chat filename variable to your own .txt file
+
+# 5. Run the analyzer
+python main.py
+
+---
+
+
 ## 🚀 Features
 
 - 📅 **Daily & Monthly Activity**: Track message count over time  
-- 👥 **User Statistics**: See who texts the most (in group chats)  
+- 👥 **User Statistics**: See who texts the most
 - 🕐 **Active Hours**: Analyze which hours are the most chat-heavy  
 - 🔤 **Most Used Words**: Word frequency cloud generation  
 - 📈 **Message Timeline Charts**: Easily spot conversation peaks and lulls  
@@ -26,7 +48,6 @@ A Python-based tool powered by **Playwright**, built to analyze your exported Wh
 
 - **Python**
 - **Playwright** – for headless browser automation
-- **Pandas** – for data processing
 - **Chart.js** – for data visualization
 - **Regex** – to parse and clean chat text
 
@@ -40,21 +61,3 @@ Export your WhatsApp chat as a `.txt` file and ensure:
 
 ---
 
-## 🧪 How to Run
-
-```bash
-# 1. Clone the repository
-git clone [https://github.com/yourusername/whatsapp-analyzer.git](https://github.com/raviarya131/special-potato)
-cd whatsapp-analyzer
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Install Playwright's browser binaries
-playwright install chromium
-
-# 4. Update filename
-# Open `main.py` and change the chat filename variable to your own .txt file
-
-# 5. Run the analyzer
-python main.py 
