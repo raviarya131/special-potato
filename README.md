@@ -5,8 +5,10 @@ A Python-based tool powered by **Playwright**, built to analyze your exported Wh
 ---
 
 <p align="center">
-  <img src="sample/sample (1)" width="400"/>
-  <img src="sample/sample (2)" width="400"/>
+  <img src="sample/sample (1).jpg" width="400"/>
+  <img src="sample/sample (2).jpg" width="400"/>
+  <img src="sample/sample (3).jpg" width="400"/>
+  <img src="sample/sample (4).jpg" width="400"/>
 </p>
 
 ## 🚀 Features
