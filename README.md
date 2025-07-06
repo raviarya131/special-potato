@@ -20,7 +20,7 @@ A Python-based tool powered by **Playwright**, built to analyze your exported Wh
 - **Python**
 - **Playwright** – for headless browser automation
 - **Pandas** – for data processing
-- **Matplotlib / Seaborn / Plotly** – for data visualization
+- **Chart.js** – for data visualization
 - **Regex** – to parse and clean chat text
 
 ---
